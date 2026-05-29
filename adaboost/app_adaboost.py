@@ -1,21 +1,29 @@
 import streamlit as st
 import pandas as pd
 import pickle
+from pathlib import Path
+
+# =========================
+# Path Setup
+# =========================
+
+BASE_DIR = Path(__file__).parent
+MODELS_DIR = BASE_DIR / "models"
 
 # =========================
 # Load Model & Artifacts
 # =========================
 
 model = pickle.load(
-    open("models/adaboost_regressor.pkl", "rb")
+    open(MODELS_DIR / "adaboost_regressor.pkl", "rb")
 )
 
 metrics = pickle.load(
-    open("models/adaboost_metrics.pkl", "rb")
+    open(MODELS_DIR / "adaboost_metrics.pkl", "rb")
 )
 
 model_columns = pickle.load(
-    open("models/adaboost_model_columns.pkl", "rb")
+    open(MODELS_DIR / "adaboost_model_columns.pkl", "rb")
 )
 
 # =========================
