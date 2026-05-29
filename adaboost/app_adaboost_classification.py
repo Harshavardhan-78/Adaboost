@@ -1,17 +1,25 @@
 import streamlit as st
 import pandas as pd
 import pickle
+from pathlib import Path
+
+# =========================
+# Path Setup
+# =========================
+
+BASE_DIR = Path(__file__).parent
+MODELS_DIR = BASE_DIR / "models"
 
 # =========================
 # Load Model & Columns
 # =========================
 
 model = pickle.load(
-    open("models/adaboost_classifier.pkl", "rb")
+    open(MODELS_DIR / "adaboost_classifier.pkl", "rb")
 )
 
 model_columns = pickle.load(
-    open("models/adaboost_model_columns_classifier.pkl", "rb")
+    open(MODELS_DIR / "adaboost_model_columns_classifier.pkl", "rb")
 )
 
 # =========================
